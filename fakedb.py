@@ -9,11 +9,20 @@ class Zoo(object):
         self._id_count += 1
         self._animals[id] = animal
 
+    def total(self):
+        return len(self._animals)
+
     def get(self, id):
         return self._animals.get(id)
 
     def get_range(self, start, amount):
-        return [self.get(id) for id in range(start, start + amount)]
+        result = []
+        for id in range(start, start + amount):
+            animal = self.get(id)
+            if animal is None:
+                break
+            result.append(animal)
+        return result
 
     def get_all(self):
         return self._animals.values()
@@ -24,9 +33,17 @@ class Animal(object):
         self.name = name
         self.species = species
 
+
+class Mammal(Animal):
+    pass
+
+
 zoo = Zoo()
 
 zoo.add(Animal('Bob', 'snake'))
-zoo.add(Animal('Anna', 'snake'))
-zoo.add(Animal('Fred', 'elephant'))
-zoo.add(Animal('Kate', 'tiger'))
+zoo.add(Animal('Fred', 'snake'))
+zoo.add(Mammal('Anna', 'elephant'))
+zoo.add(Mammal('Kate', 'tiger'))
+
+for i in range(50):
+    zoo.add(Animal('Name %s' % i, 'Neo-ornithinesaurus'))
