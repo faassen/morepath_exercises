@@ -9,6 +9,9 @@ class Zoo(object):
         self._id_count += 1
         self._animals[id] = animal
 
+    def remove(self, id):
+        del self._animals[id]
+
     def total(self):
         return len(self._animals)
 
