@@ -48,5 +48,3 @@ zoo.add(Animal('Fred', 'snake'))
 zoo.add(Mammal('Anna', 'elephant'))
 zoo.add(Mammal('Kate', 'tiger'))
 
-for i in range(50):
-    zoo.add(Animal('Name %s' % i, 'Neo-ornithinesaurus'))
