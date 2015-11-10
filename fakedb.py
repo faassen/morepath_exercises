@@ -36,15 +36,10 @@ class Animal(object):
         self.name = name
         self.species = species
 
-
-class Mammal(Animal):
-    pass
-
-
 zoo = Zoo()
 
 zoo.add(Animal('Bob', 'snake'))
 zoo.add(Animal('Fred', 'snake'))
-zoo.add(Mammal('Anna', 'elephant'))
-zoo.add(Mammal('Kate', 'tiger'))
+zoo.add(Animal('Anna', 'elephant'))
+zoo.add(Animal('Kate', 'tiger'))
 
