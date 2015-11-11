@@ -1,7 +1,6 @@
 class Zoo(object):
     def __init__(self):
-        self._animals = {}
-        self._id_count = 0
+        self.clear()
 
     def add(self, animal):
         id = self._id_count
@@ -11,6 +10,10 @@ class Zoo(object):
 
     def remove(self, id):
         del self._animals[id]
+
+    def clear(self):
+        self._animals = {}
+        self._id_count = 0
 
     def total(self):
         return len(self._animals)
@@ -38,8 +41,12 @@ class Animal(object):
 
 zoo = Zoo()
 
-zoo.add(Animal('Bob', 'snake'))
-zoo.add(Animal('Fred', 'snake'))
-zoo.add(Animal('Anna', 'elephant'))
-zoo.add(Animal('Kate', 'tiger'))
+def reset_zoo():
+    zoo.clear()
+    zoo.add(Animal('Bob', 'snake'))
+    zoo.add(Animal('Fred', 'snake'))
+    zoo.add(Animal('Anna', 'elephant'))
+    zoo.add(Animal('Kate', 'tiger'))
+
+reset_zoo()
 
